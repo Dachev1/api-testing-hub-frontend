@@ -1,0 +1,10 @@
+{
+  "name": "API Testing Hub",
+  "short_name": "API Hub",
+  "description": "Modern API testing and documentation platform",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#3b82f6",
+  "icons": []
+} 
