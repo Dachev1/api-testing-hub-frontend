@@ -7,40 +7,31 @@
 
 @layer base {
   :root {
+    /* Light theme variables */
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
-
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
-
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
-
     --primary: 221.2 83.2% 53.3%;
     --primary-foreground: 210 40% 98%;
-
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 222.2 47.4% 11.2%;
-
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
-
     --accent: 210 40% 96.1%;
     --accent-foreground: 222.2 47.4% 11.2%;
-
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
-
     --success: 142.1 76.2% 36.3%;
     --success-foreground: 355.7 100% 97.3%;
-
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
     --ring: 221.2 83.2% 53.3%;
-
     --radius: 0.5rem;
 
-    /* Modern light theme with slightly more vibrant colors */
+    /* Gradients */
     --gradient-primary: linear-gradient(135deg, hsl(221 83% 53%), hsl(262 83% 58%));
     --gradient-secondary: linear-gradient(135deg, hsl(221 83% 53%), hsl(196 83% 58%));
     --gradient-success: linear-gradient(135deg, hsl(142 72% 42%), hsl(162 72% 42%));
@@ -48,47 +39,37 @@
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 217.2 91.2% 59.8%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
+    /* Dracula-inspired theme */
+    --background: 231 15% 18%;
+    --foreground: 60 30% 96%;
+    --card: 232 14% 16%;
+    --card-foreground: 60 30% 96%;
+    --popover: 232 14% 16%;
+    --popover-foreground: 60 30% 96%;
+    --primary: 326 100% 74%;
+    --primary-foreground: 60 30% 96%;
+    --secondary: 232 14% 26%;
+    --secondary-foreground: 60 30% 96%;
+    --muted: 232 14% 26%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 250 95% 76%;
+    --accent-foreground: 60 30% 96%;
+    --destructive: 0 62.8% 65.6%;
     --destructive-foreground: 210 40% 98%;
-
-    --success: 142.1 70.6% 45.3%;
-    --success-foreground: 144.9 80.4% 10%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 224.3 76.3% 48%;
+    --success: 135 94% 65%;
+    --success-foreground: 60 30% 96%;
+    --border: 232 14% 26%;
+    --input: 232 14% 26%;
+    --ring: 326 100% 74%;
 
     /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(217 91% 60%), hsl(262 83% 58%));
-    --gradient-secondary: linear-gradient(135deg, hsl(217 91% 60%), hsl(196 83% 58%));
-    --gradient-success: linear-gradient(135deg, hsl(142 72% 42%), hsl(162 72% 42%));
-    --gradient-destructive: linear-gradient(135deg, hsl(0 84% 60%), hsl(340 84% 60%));
+    --gradient-primary: linear-gradient(135deg, hsl(326 100% 74%), hsl(265 89% 78%));
+    --gradient-secondary: linear-gradient(135deg, hsl(326 100% 74%), hsl(191 97% 77%));
+    --gradient-success: linear-gradient(135deg, hsl(135 94% 65%), hsl(170 94% 65%));
+    --gradient-destructive: linear-gradient(135deg, hsl(0 94% 65%), hsl(340 94% 65%));
   }
 
-  * {
-    @apply border-border;
-  }
+  * { @apply border-border; }
 
   body {
     @apply bg-background text-foreground transition-colors duration-300;
@@ -98,29 +79,16 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
-  /* Modern smooth scrollbars */
+  /* Scrollbar styling */
   ::-webkit-scrollbar {
     width: 6px;
     height: 6px;
   }
+  ::-webkit-scrollbar-track { @apply bg-transparent; }
+  ::-webkit-scrollbar-thumb { @apply bg-muted-foreground/30 rounded-full transition-colors; }
+  ::-webkit-scrollbar-thumb:hover { @apply bg-muted-foreground/50; }
+  ::-webkit-scrollbar-corner { @apply bg-transparent; }
 
-  ::-webkit-scrollbar-track {
-    @apply bg-transparent;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    @apply bg-muted-foreground/30 rounded-full transition-colors;
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    @apply bg-muted-foreground/50;
-  }
-
-  ::-webkit-scrollbar-corner {
-    @apply bg-transparent;
-  }
-
-  /* Firefox */
   * {
     scrollbar-width: thin;
     scrollbar-color: hsl(var(--muted-foreground) / 0.3) transparent;
@@ -128,7 +96,7 @@
 }
 
 @layer components {
-  /* Glass effect */
+  /* UI components */
   .glass {
     background: hsl(var(--card) / 0.8);
     backdrop-filter: blur(12px);
@@ -136,76 +104,59 @@
     @apply shadow-sm;
   }
   
-  /* Gradient border effect */
   .gradient-border {
     position: relative;
     background: hsl(var(--card));
     border-radius: 0.5rem;
     overflow: hidden;
-  }
-  
-  .gradient-border::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    padding: 1px;
-    background: var(--gradient-primary);
-    border-radius: inherit;
-    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    mask-composite: xor;
-    -webkit-mask-composite: xor;
-    pointer-events: none;
-  }
-
-  /* Gradient text */
-  .gradient-text {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-purple-500;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      padding: 1px;
+      background: var(--gradient-primary);
+      border-radius: inherit;
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask-composite: xor;
+      -webkit-mask-composite: xor;
+      pointer-events: none;
+    }
   }
 
-  /* Gradient button */
+  .gradient-text { @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-purple-500; }
+
   .gradient-btn {
     background: var(--gradient-primary);
     color: hsl(var(--primary-foreground));
     transition: all 0.2s ease;
+    
+    &:hover {
+      filter: brightness(1.1);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 20px -5px hsl(var(--primary) / 0.5);
+    }
   }
 
-  .gradient-btn:hover {
-    filter: brightness(1.1);
-    transform: translateY(-1px);
-    box-shadow: 0 4px 20px -5px hsl(var(--primary) / 0.5);
-  }
-
-  /* Neumorphic elements */
   .neumorphic {
-    @apply bg-white shadow-[5px_5px_10px_rgba(174,174,192,0.4),-5px_-5px_10px_#FFFFFF] dark:bg-slate-800 dark:shadow-[5px_5px_10px_rgba(0,0,0,0.4),-5px_-5px_10px_rgba(39,42,55,1)];
+    @apply bg-white shadow-[5px_5px_10px_rgba(174,174,192,0.4),-5px_-5px_10px_#FFFFFF] 
+           dark:bg-slate-800 dark:shadow-[5px_5px_10px_rgba(0,0,0,0.4),-5px_-5px_10px_rgba(39,42,55,1)];
   }
 
-  /* Card hover effect */
   .card-hover {
     transition: all 0.3s ease;
+    
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px hsl(var(--muted-foreground) / 0.15);
+    }
   }
 
-  .card-hover:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 30px hsl(var(--muted-foreground) / 0.15);
-  }
-
-  /* Animations */
-  .animate-fade-in {
-    animation: fade-in 0.2s ease-out forwards;
-  }
-
-  .animate-slide-down {
-    animation: slide-down 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  }
-
-  .animate-slide-up {
-    animation: slide-up 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  }
-
-  .animate-scale {
-    animation: scale 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  }
+  /* Animation classes */
+  .animate-fade-in { animation: fade-in 0.2s ease-out forwards; }
+  .animate-slide-down { animation: slide-down 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+  .animate-slide-up { animation: slide-up 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+  .animate-scale { animation: scale 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
 }
 
 @layer utilities {
@@ -215,55 +166,62 @@
     animation-fill-mode: both;
   }
   
-  /* Animation for theme button */
-  .animate-spin-slow {
-    animation: spin 5s linear infinite;
-  }
+  .animate-spin-slow { animation: spin 5s linear infinite; }
   
   @keyframes spin {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  /* Scrollbar utilities */
+  .scrollbar-thin { scrollbar-width: thin; }
+  .scrollbar-thin::-webkit-scrollbar { width: 6px; height: 6px; }
+  .scrollbar-thin::-webkit-scrollbar-track { background: transparent; }
+  .scrollbar-thin::-webkit-scrollbar-thumb { 
+    background-color: hsl(var(--border));
+    border-radius: 3px;
+    
+    &:hover { background-color: hsl(var(--primary) / 0.3); }
+  }
+
+  /* Performance optimizations */
+  .content-visibility-auto { content-visibility: auto; }
+  .contain-intrinsic-size-y-400 { contain-intrinsic-size: 0 400px; }
+  .contain-intrinsic-size-y-500 { contain-intrinsic-size: 0 500px; }
+  .overscroll-behavior-contain { overscroll-behavior: contain; }
+  .hardware-accelerated {
+    transform: translateZ(0);
+    backface-visibility: hidden;
   }
 }
 
+/* Animation keyframes */
 @keyframes fade-in {
   from { opacity: 0; }
   to { opacity: 1; }
 }
 
 @keyframes slide-down {
-  from { 
-    opacity: 0; 
-    transform: translateY(-10px); 
-  }
-  to { 
-    opacity: 1; 
-    transform: translateY(0); 
-  }
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes slide-up {
-  from { 
-    opacity: 0; 
-    transform: translateY(10px); 
-  }
-  to { 
-    opacity: 1; 
-    transform: translateY(0); 
-  }
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes scale {
-  from { 
-    opacity: 0; 
-    transform: scale(0.95); 
-  }
-  to { 
-    opacity: 1; 
-    transform: scale(1); 
-  }
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes tooltip-slide-in {
+  from { opacity: 0; transform: translateY(-80%); visibility: visible; }
+  to { opacity: 1; transform: translateY(-100%); visibility: visible; }
+}
+
+.tooltip-animation {
+  animation: tooltip-slide-in 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, opacity;
 } 
